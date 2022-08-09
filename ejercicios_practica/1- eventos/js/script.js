@@ -15,20 +15,20 @@ Verifique que en la consola sigan apereciendo los mensajes de log
 
 const boton = document.querySelector("button");
 
-boton.addEventListener("click", () => {
-    console.log("Respuesta evento click");
-    boton.className = "btnClick";
-})
+boton.onclick = () => { 
+        console.log("Respuesta evento click1");
+        boton.className = "btnClick";
+}
 
-boton.addEventListener("mouseover", () => {
-    console.log("Respuesta evento mouseover");
-    boton.className = "btnOver";
-})
+boton.onmouseover = () => {
+        console.log("Respuesta evento mouseover");
+        boton.className = "btnOver";
+}
 
-boton.addEventListener("mouseout", () => {
-    console.log("Respuesta evento mouseout");
-    boton.className = "btnOut";
-})
+boton.onmouseout = () => {
+        console.log("Respuesta evento mouseout");
+        boton.className = "btnOut";
+}
 
 
 /* 2 - Enunciado
@@ -39,7 +39,13 @@ en como capturar este evento y además como capturar el valor
 actual seleccionado en la caja de seleccion.
 
 */
-
+const select = document.querySelector('select');
+ 
+select.onchange = () => {
+    select.value === 'efectivo' ? console.log("Efectivo") : 
+                    'transferencia' ? console.log("Transferencia"):
+                    'tarjeta' ? console.log("Tarjeta"): console.log("nada")
+}
 /* 3 - Enunciado
 
 Cree un evento que capture cuando haya finalizado de ingresas
@@ -49,3 +55,9 @@ PISTA: Debe utilizar el mismo tipo de evento que en el ejercicio
 anterior.
 
 */
+const art = document.querySelector('article');
+const text = document.querySelector('input');
+text.onchange = () => {
+    alert("El texto es " + text.value)
+    console.log(text.value)
+}
